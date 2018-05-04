@@ -3,5 +3,10 @@ galaxy_info:
   description: Role to use letsencrypt
   license: MIT
   min_ansible_version: 1.2
-  galaxy_tags: [ssl]
+  platforms:
+    - name: Ubuntu
+  galaxy_tags:
+    - ssl
+    - web
+    - letsencrypt
 dependencies: []
