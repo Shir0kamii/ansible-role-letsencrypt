@@ -20,6 +20,15 @@ default value: /var/lib/letsencrypt
 
 This variable defines the webroot used by letsencrypt to resolve the challenges.
 
+### letsencrypt\_email
+
+default value: null
+
+**required**
+
+You must override this setting to be alerted when a certificate will expire
+
+
 Example Playbook
 ----------------
 
