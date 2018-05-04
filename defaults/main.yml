@@ -1,0 +1,4 @@
+---
+# defaults file for ansible-role-letsencrypt
+letsencrypt_domains: []
+letsencrypt_webroot: /var/lib/letsencrypt

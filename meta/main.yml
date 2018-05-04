@@ -1,0 +1,7 @@
+galaxy_info:
+  author: Shir0kamii
+  description: Role to use letsencrypt
+  license: MIT
+  min_ansible_version: 1.2
+  galaxy_tags: [ssl]
+dependencies: []

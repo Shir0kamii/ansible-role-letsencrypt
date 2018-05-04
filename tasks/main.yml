@@ -1,0 +1,18 @@
+---
+# tasks file for ansible-role-letsencrypt
+- name: Install letsencrypt
+  apt:
+      name: letsencrypt
+      update_cache: yes
+
+- name: Resolve challenge to obtain certificates
+  shell: letsencrypt certonly --webroot -w {{ letsencrypt_webroot }} -d {{ item }}
+  with_items: "{{ letsencrypt_domains }}"
+
+- name: Add cron job to renew certificates
+  cron:
+      name: "renew {{ item }}"
+      minute: 0
+      hour: 0
+      job: letsencrypt certonly --webroot -w {{ letsencrypt_webroot }} -d {{ item }} --keep
+  with_items: "{{ letsencrypt_domains }}"
