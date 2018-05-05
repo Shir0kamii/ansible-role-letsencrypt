@@ -17,6 +17,8 @@
 
 - name: Resolve challenge to obtain certificates
   shell: letsencrypt certonly --webroot -m {{ letsencrypt_email }} -w {{ letsencrypt_webroot }} -d {{ item }}
+  args:
+      creates: "{{ letsencrypt_domains_directory }}/{{ item }}"
   with_items: "{{ letsencrypt_domains }}"
 
 - name: Add cron job to renew certificates

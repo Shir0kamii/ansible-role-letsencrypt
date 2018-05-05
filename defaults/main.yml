@@ -3,3 +3,4 @@
 letsencrypt_domains: []
 letsencrypt_webroot: /var/lib/letsencrypt
 letsencrypt_email: null
+letsencrypt_domains_directory: /etc/letsencrypt/live
