@@ -11,11 +11,13 @@
       dest: "{{ nginx_vhost_path }}/default"
       group: www-data
       owner: www-data
+  register: nginx_config
 
 - name: Reload nginx
   service:
       name: nginx
       state: reloaded
+  when: nginx_config.changed
 
 - name: Resolve challenge to obtain certificates
   shell: letsencrypt certonly --webroot -m {{ letsencrypt_email }} -w {{ letsencrypt_webroot }} -d {{ item }} -n --agree-tos
