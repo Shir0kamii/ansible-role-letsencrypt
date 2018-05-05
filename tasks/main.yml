@@ -6,8 +6,8 @@
       update_cache: yes
 
 - name: Copy default nginx configuration
-  copy:
-      src: letsencrypt.conf
+  template:
+      src: letsencrypt.conf.j2
       dest: "{{ nginx_vhost_path }}/default"
 
 - name: Reload nginx
