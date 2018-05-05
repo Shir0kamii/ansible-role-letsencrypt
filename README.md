@@ -28,6 +28,18 @@ default value: null
 
 You must override this setting to be alerted when a certificate will expire
 
+### letsencrypt\_domains\_directory
+
+default value: /etc/letsencrypt/live
+
+This is the directory where certificates for your domains are stored.
+
+### letsencrypt\_tos\_agreed
+
+default value: false
+
+Read https://letsencrypt.org/repository/ and set this to true
+
 
 Example Playbook
 ----------------
