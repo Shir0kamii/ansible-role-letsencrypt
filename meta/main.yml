@@ -9,4 +9,5 @@ galaxy_info:
     - ssl
     - web
     - letsencrypt
-dependencies: []
+dependencies:
+    - geerlingguy.nginx

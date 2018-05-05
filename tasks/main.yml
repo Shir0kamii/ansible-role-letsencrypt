@@ -5,6 +5,16 @@
       name: letsencrypt
       update_cache: yes
 
+- name: Copy default nginx configuration
+  copy:
+      src: letsencrypt.conf
+      dest: "{{ nginx_vhost_path }}/default"
+
+- name: Reload nginx
+  service:
+      name: nginx
+      state: reloaded
+
 - name: Resolve challenge to obtain certificates
   shell: letsencrypt certonly --webroot -m {{ letsencrypt_email }} -w {{ letsencrypt_webroot }} -d {{ item }}
   with_items: "{{ letsencrypt_domains }}"
