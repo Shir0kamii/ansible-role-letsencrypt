@@ -22,6 +22,7 @@
   args:
       creates: "{{ letsencrypt_domains_directory }}/{{ item }}"
   with_items: "{{ letsencrypt_domains }}"
+  when: letsencrypt_tos_agreed
 
 - name: Add cron job to renew certificates
   cron:
