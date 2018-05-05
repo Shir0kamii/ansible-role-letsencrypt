@@ -9,6 +9,8 @@
   template:
       src: letsencrypt.conf.j2
       dest: "{{ nginx_vhost_path }}/default"
+      group: www-data
+      owner: www-data
 
 - name: Reload nginx
   service:
