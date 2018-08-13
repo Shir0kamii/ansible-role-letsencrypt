@@ -10,4 +10,4 @@ galaxy_info:
     - web
     - letsencrypt
 dependencies:
-    - geerlingguy.nginx
+    - shir0kamii.ansible_role_nginx
