@@ -1,9 +1,11 @@
 ---
 # tasks file for ansible-role-letsencrypt
-- name: Install letsencrypt
-  apt:
-      name: letsencrypt
-      update_cache: yes
+- import_tasks: install.yml
+
+- name: Create user www-data
+  user:
+      name: www-data
+      shell: /bin/bash
 
 - name: Copy default nginx configuration
   template:
