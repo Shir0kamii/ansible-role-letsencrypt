@@ -1,0 +1,8 @@
+---
+- name: Install letsencrypt
+  apt:
+      name: letsencrypt
+      update_cache: yes
+
+- set_fact:
+      softname: letsencrypt

@@ -1,0 +1,9 @@
+---
+- name: Install letsencrypt
+  pacman:
+      name: certbot
+      state: present
+      update_cache: yes
+
+- set_fact:
+      softname: certbot

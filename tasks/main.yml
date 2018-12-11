@@ -22,7 +22,7 @@
   when: nginx_config.changed
 
 - name: Resolve challenge to obtain certificates
-  shell: letsencrypt certonly --webroot -m {{ letsencrypt_email }} -w {{ letsencrypt_webroot }} -d {{ item }} -n --agree-tos
+  shell: "{{ softname }} certonly --webroot -m {{ letsencrypt_email }} -w {{ letsencrypt_webroot }} -d {{ item }} -n --agree-tos"
   args:
       creates: "{{ letsencrypt_domains_directory }}/{{ item }}"
   with_items: "{{ letsencrypt_domains }}"
@@ -33,5 +33,5 @@
       name: "renew {{ item }}"
       minute: 0
       hour: 0
-      job: letsencrypt certonly --webroot -m {{ letsencrypt_email }} -w {{ letsencrypt_webroot }} -d {{ item }} -n --keep
+      job: "{{ softname }} certonly --webroot -m {{ letsencrypt_email }} -w {{ letsencrypt_webroot }} -d {{ item }} -n --keep"
   with_items: "{{ letsencrypt_domains }}"

@@ -1,13 +1,6 @@
 ---
-- name: Install letsencrypt
-  apt:
-      name: letsencrypt
-      update_cache: yes
-  when: ansible_os_family|lower == "debian"
-
-- name: Install letsencrypt
-  pacman:
-      name: certbot
-      state: present
-      update_cache: yes
+- import_tasks: arch_install.yml
   when: ansible_os_family|lower == "archlinux"
+
+- import_tasks: debian_install.yml
+  when: ansible_os_family|lower == "debian"
